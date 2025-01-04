@@ -54,6 +54,9 @@
 
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
+      function process_pub (pub){
+        return "meow"
+      }
       function refresh_pubs()
       {
         fetch('https://dblp.org/pid/351/1082.xml')
@@ -65,7 +68,7 @@
           })
           .then(xmlText => {
               const parser = new DOMParser();
-              const xmlDoc = xmlText.parseFromString(xmlText, 'text/xml');
+              const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
               pubinfo.textContent = xmlText;
               // Now you can work with the parsed XML document
