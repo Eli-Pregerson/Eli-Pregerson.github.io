@@ -64,8 +64,7 @@
           })
           .then(xmlText => {
               const parser = new DOMParser();
-              const xmlDoc = parser.parseFromString(xmlText,
-                                                  'text/xml');
+              const xmlDoc = xmlText;
 
               // Now you can work with the parsed XML document
               console.log(xmlDoc);
