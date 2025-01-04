@@ -56,7 +56,9 @@
       var pubinfo = document.getElementById("pubinfo");
       function process_pub (pub){
         var text = "";
-        text += pub.getElementsByTagName('title')[0];
+        const children = pub.children;
+        text += children.getElementsByTagName('title')[0];
+        text += children.getElementsByTagName('year')[0];
         return text;
       }
       function refresh_pubs()
