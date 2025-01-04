@@ -45,7 +45,7 @@
     <h2>Completed Projects</h2>
     <h3>Computational Representation Theory</h3>
     We designed algorithms for the computation of subranking and subset summary statistics in a way that maximized sharing of intermediary values and minimized the number of addition operations. We then formalized those algorithms in the language of group frames.
-    <h3>Trace Ideals overn Nhttpsumerical Semigroup Rings</h3>
+    <h3>Trace Ideals overn Numerical Semigroup Rings</h3>
     The goal of this project is to categorize the structure of trace ideals over numerical semigroup rings. Trace ideals are powerful algebraic tools that can be used to classify rings and modules. Numerical semigroups rings are a pervasive type of ring that pop up in many areas of mathematics like algebraic geometry and number theory and they have a number of properties that make them a convenient object for study with trace ideals.
 
 
@@ -66,7 +66,7 @@
           .then(xmlText => {
               const parser = new DOMParser();
               const xmlDoc = xmlText;
-              pubinfo.textContent = xmlDoc;
+              pubinfo.textContent = xmlDoc.getElementsByTagName('r');
               // Now you can work with the parsed XML document
               console.log(xmlText);
           })
