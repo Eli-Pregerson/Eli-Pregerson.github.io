@@ -77,9 +77,10 @@
               var pubText = ""
               
               for (let x in pubs) {
-                for (let child in x.children) {
-                  pubText += child;
-                }
+                pubText += x.innerHTML;
+                // for (let child in x.children) {
+                //   pubText += child;
+                // }
                 
               }
               pubinfo.textContent = pubText;
