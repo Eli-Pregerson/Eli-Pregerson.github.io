@@ -54,13 +54,13 @@
 
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
-      function process_pub (pub){
-        var text = "";
-        const children = pub.children;
-        text += children.getElementsByTagName('title')[0];
-        text += children.getElementsByTagName('year')[0];
-        return text;
-      }
+      // function process_pub (pub){
+      //   var text = "";
+      //   const children = pub.children;
+      //   text += children.getElementsByTagName('title')[0];
+      //   text += children.getElementsByTagName('year')[0];
+      //   return text;
+      // }
       function refresh_pubs()
       {
         fetch('https://dblp.org/pid/351/1082.xml')
@@ -77,7 +77,7 @@
               var pubText = ""
               
               for (let x in pubs) {
-                pubText += process_pub(x);
+                pubText += x.children;
               }
               pubinfo.textContent = pubText;
               // Now you can work with the parsed XML document
