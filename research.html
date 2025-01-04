@@ -65,8 +65,9 @@
           })
           .then(xmlText => {
               const parser = new DOMParser();
-              const xmlDoc = xmlText;
-              pubinfo.textContent = xmlDoc.getElementsByTagName('r');
+              const xmlDoc = xmlText.parseFromString(xmlText, 'text/xml');
+              const pubs = xmlDoc.getElementsByTagName('r');
+              pubinfo.textContent = xmlText;
               // Now you can work with the parsed XML document
               console.log(xmlText);
           })
