@@ -77,7 +77,10 @@
               var pubText = ""
               
               for (let x in pubs) {
-                pubText += x.children;
+                for (let child in x.children) {
+                  pubText += child.textContent;
+                }
+                
               }
               pubinfo.textContent = pubText;
               // Now you can work with the parsed XML document
