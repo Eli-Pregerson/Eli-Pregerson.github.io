@@ -55,7 +55,9 @@
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
       function process_pub (pub){
-        return "meow"
+        var text = "";
+        text += pub.getElementsByTagName('title')[0];
+        return text;
       }
       function refresh_pubs()
       {
