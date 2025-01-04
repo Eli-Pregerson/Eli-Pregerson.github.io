@@ -27,6 +27,7 @@
         }
         </style>
         </head>
+    <body onload="refresh_pubs()">
     <ul>
         
         <li><a href="..">About</a></li>
@@ -50,4 +51,32 @@
 
     <h2>Publications</h2>
     
+
+    <script type = "text/javascript">
+      function refresh_pubs()
+      {
+        fetch('https://dblp.org/pid/351/1082.xml')
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.text();
+          })
+          .then(xmlText => {
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xmlText,
+                                                  'text/xml');
+
+              // Now you can work with the parsed XML document
+              console.log(xmlDoc);
+          })
+          .catch(error => {
+              console.error(`There was a problem with
+                            the fetch operation:`, error);
+          });
+      }
+      
+      </script>
+        
+      </body>
 </html>
