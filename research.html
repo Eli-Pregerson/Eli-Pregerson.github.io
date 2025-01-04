@@ -50,9 +50,10 @@
 
 
     <h2>Publications</h2>
-    
+    <p id="pubinfo"> Scraper down. Just check dblp</p>
 
     <script type = "text/javascript">
+      var pubinfo = document.getElementById("pubinfo");
       function refresh_pubs()
       {
         fetch('https://dblp.org/pid/351/1082.xml')
@@ -65,9 +66,9 @@
           .then(xmlText => {
               const parser = new DOMParser();
               const xmlDoc = xmlText;
-
+              pubinfo.textContent = xmlDoc;
               // Now you can work with the parsed XML document
-              console.log(xmlDoc);
+              console.log(xmlText);
           })
           .catch(error => {
               console.error(`There was a problem with
