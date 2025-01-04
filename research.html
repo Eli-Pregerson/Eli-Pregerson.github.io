@@ -71,6 +71,10 @@
               const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
               pubinfo.textContent = xmlText;
+              for (let x in pubs) {
+                xmlText += "meow";
+              }
+              
               // Now you can work with the parsed XML document
               console.log(xmlText);
           })
