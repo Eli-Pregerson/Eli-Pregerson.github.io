@@ -74,17 +74,18 @@
               const parser = new DOMParser();
               const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
-              const pubdata = pubs[0].childNodes[0].children;
-              var pubText = "";
+              const pubdata = pubs[0].childNodes[0];
+              const Doc2 = parser.parseFromString(pubdata, 'text/xml')
+              var pubText = Doc2;
               // pubdata[0].nodeValue;
               
-              for (let x in pubdata) {
-                pubText += x + "\n";
-                // for (let child in x.children) {
-                //   pubText += child;
-                // }
+              // for (let x in pubdata) {
+              //   pubText += x + "\n";
+              //   // for (let child in x.children) {
+              //   //   pubText += child;
+              //   // }
                 
-              }
+              // }
               pubinfo.textContent = pubText;
               // Now you can work with the parsed XML document
               console.log(xmlText);
