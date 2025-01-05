@@ -75,7 +75,7 @@
               const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
               const pubdata = pubs[0].childNodes;
-              var pubText = pubdata[0];
+              var pubText = pubdata[0].children;
               // pubdata[0].nodeValue;
               
               // for (let x in pubs) {
