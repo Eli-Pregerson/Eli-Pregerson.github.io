@@ -74,17 +74,18 @@
               const parser = new DOMParser();
               const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
-              const pubdata = pubs[0].childNodes[0];
-              const Doc2 = parser.parseFromString(pubdata, 'text/xml');
-              var pubText = pubdata.innerHTML;
-              pubText += "\n" + typeof pubdata
+              const pubdata = pubs[0].childNodes;
+              //const Doc2 = parser.parseFromString(pubdata, 'text/xml');
+              var pubText = "";
+              
               // pubdata[0].nodeValue;
               
-              // for (let x in pubdata) {
-              //   pubText += x + "\n";
-              //   // for (let child in x.children) {
-              //   //   pubText += child;
-              //   // }
+              for (let x in pubdata) {
+                pubText += x.innerHTML + "\n";
+                pubText += typeof pubdata + "\n";
+                // for (let child in x.children) {
+                //   pubText += child;
+                // }
                 
               // }
               pubinfo.textContent = pubText;
