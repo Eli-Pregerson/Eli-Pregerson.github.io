@@ -54,7 +54,7 @@
 
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
-      var keywords = ['author', 'title'];
+      var keywords = ['author', 'title', 'year', 'url'];
       // function process_pub (pub){
       //   var text = "";
       //   const children = pub.children;
@@ -75,14 +75,18 @@
               const parser = new DOMParser();
               const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
               const pubs = xmlDoc.getElementsByTagName('r');
-              var pubdata = pubs[0].childNodes;
+              var pubdata = [];
+              for (let x of pubs) {
+                pubdata += [x.childNodes[0].childNodes];
+              }
+
               //const Doc2 = parser.parseFromString(pubdata, 'text/xml');
-              var pubText = pubdata[0].innerHTML;
-              pubdata = pubdata[0].childNodes;
+              var pubText = "";
+
               
               // pubdata[0].nodeValue;
               
-              for (let x of pubdata) {
+              for (let x of pubdata[0]) {
                 if (keywords.includes(x.tagName)) {
                   pubText += x.innerHTML + '\n';
                 }
