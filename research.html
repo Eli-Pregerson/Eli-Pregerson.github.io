@@ -83,7 +83,7 @@
               // pubdata[0].nodeValue;
               
               for (let x of pubdata) {
-                if (x.tagName in keywords) {
+                if (keywords.includes(x.tagName)) {
                   pubText += x.innerHTML + '\n';
                 }
                 // pubText += x + "\n";
