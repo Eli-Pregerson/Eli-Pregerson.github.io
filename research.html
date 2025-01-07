@@ -54,6 +54,7 @@
 
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
+      var keywords = ["author", "title"]
       // function process_pub (pub){
       //   var text = "";
       //   const children = pub.children;
@@ -82,8 +83,9 @@
               // pubdata[0].nodeValue;
               
               for (let x of pubdata) {
-                pubText += x.innerHTML + "          ";
-                pubText += x.tagName + "          ";
+                if (x.tagName in keywords) {
+                  pubText += x.innerHTML + "          ";
+                }
                 // pubText += x + "\n";
                 // pubText += typeof x + "\n";
                 // for (let child in x.children) {
