@@ -85,18 +85,15 @@
 
               
               // pubdata[0].nodeValue;
-              
-              for (let x of pubdata[0]) {
+              for (let j of pubdata) {
+                for (let x of j) {
                 if (keywords.includes(x.tagName)) {
                   pubText += x.innerHTML + '\n';
                 }
-                // pubText += x + "\n";
-                // pubText += typeof x + "\n";
-                // for (let child in x.children) {
-                //   pubText += child;
-                // }
                 
               }
+              }
+              
               pubinfo.textContent = pubText;
               // Now you can work with the parsed XML document
               console.log(xmlText);
