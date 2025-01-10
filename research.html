@@ -50,7 +50,10 @@
 
 
     <h2>Publications</h2>
-    <p id="pubinfo"> Scraper down. Just check dblp</p>
+    <div id="pubdiv">
+      <p id="pubinfo"> Scraper down. Just check dblp</p>
+    </div>
+    
 
     <script type = "text/javascript">
       var pubinfo = document.getElementById("pubinfo");
@@ -79,22 +82,28 @@
               for (let x of pubs) {
                 pubdata.push(x.childNodes[0].childNodes);
               }
-
+              pubdata.reverse();
               //const Doc2 = parser.parseFromString(pubdata, 'text/xml');
               var pubText = "";
 
               
               // pubdata[0].nodeValue;
               for (let j of pubdata) {
+                const para = document.createElement("p");
+                var singleText = "";
                 for (let x of j) {
-                if (keywords.includes(x.tagName)) {
-                  pubText += x.innerHTML + '\n';
+                  if (keywords.includes(x.tagName)) {
+                    singleText += x.innerHTML;
+                  }
                 }
-                
-              }
+                const node = document.createTextNode(singleText);
+                para.appendChild(node);
+
+                const element = document.getElementById("pubdiv");
+                element.appendChild(para);
               }
               
-              pubinfo.textContent = pubText;
+              pubinfo.textContent = "";
               // Now you can work with the parsed XML document
               console.log(xmlText);
           })
