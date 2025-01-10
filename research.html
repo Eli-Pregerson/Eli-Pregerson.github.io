@@ -93,10 +93,10 @@
                 var singleText = "";
                 for (let x of j) {
                   if (keywords.includes(x.tagName)) {
-                    singleText += x.innerHTML;
+                    singleText += x.innerHTML + ", ";
                   }
                 }
-                const node = document.createTextNode(singleText);
+                const node = document.createTextNode(singleText.slice(0, -2));
                 para.appendChild(node);
 
                 const element = document.getElementById("pubdiv");
